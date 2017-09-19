@@ -8,9 +8,9 @@ class Hamming
     # iterates through strands with equal lengths
     difference = 0
     mutation_char = mutation.split("")
-    original.each_char.with_index(0) do |character, index|
-      unless mutation_char[index] == character.to_s
-        difference = difference + 1
+    original.each_char.with_index do |character, index|
+      unless mutation_char[index] == character
+        difference += 1
       end
     end
 
