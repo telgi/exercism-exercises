@@ -1,19 +1,13 @@
 class Hamming
+
   def self.compute(original, mutation)
     # checks for strands with inequal lengths
-    unless original.length == mutation.length
-      raise ArgumentError
-    end
-
+    raise ArgumentError unless original.length == mutation.length
     # iterates through strands with equal lengths
     difference = 0
-    mutation_char = mutation.split("")
     original.each_char.with_index do |character, index|
-      unless mutation_char[index] == character
-        difference += 1
+    difference += 1 if character != mutation[index]
       end
-    end
-
     difference
   end
 end
